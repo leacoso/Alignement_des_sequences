@@ -1,0 +1,70 @@
+def DIST_1 (x,y) : 
+    n = len(x) 
+    m = len(y)
+    T = [n+1][m+1]  On crée un tableau de n+1 lignes et m+1 colonnes
+    Pour i allant de 0 à n : 
+        T[i][0] = c_del *i 
+    pour j allant de 0 à m : 
+        T[0][j] = c_ins * j 
+      
+
+    Pour i allant de 1 à n : 
+        Pour j allant de 1 à m : 
+        T[i,j] = min(T[i-1][j] + c_ins , T[i][j-1] + c_del, T[i-1][j-1] + c_sub(x[i-1],y[j-1])
+
+    retourne T[n][m]
+
+def DIST_2 (x,y): 
+    n = len(x) 
+    m = len(y)
+    T = [2][m+1] On crée un tableau de 2 lignes et de m+1 colonnes
+    Pour i allant de 0 à 1 : 
+        T[i][0] = c_del*i
+    Pour i allant de 0 à m : 
+        T[0][j] = c_ins * j 
+
+    Pour i allant de 1 à n : 
+        Pour j allant de 1 à m : 
+            T[1][j]  = min(T[0][j] + c_ins , T[1][j-1] + c_del, T[0][j-1] + c_sub(x[i-1],y[j-1])
+        Pour k allant de 0 à m : 
+            T[0][k] = T[1][k]       La deuxieme ligne du tableau devient la premiere ligne 
+
+    retourne T 
+
+def mot_gaps (k): 
+    retourne "_"*k
+
+def teste_lettre (x,l): 
+    for i in range (0,len(x)) : 
+        if x[i] ==l : 
+            return i
+    retourne -1
+
+def teste_complementaire(x,l): 
+    for i in range (0,len(x)) : 
+        if (x[i] in {'A','T'} and l in {'A','T'}) or (x[i] in {'C','G'} and l in {'C','G'})
+            return i
+    retourne -1
+
+def align_lettre_mot (x, y): 
+    lettre = teste_lettre(y,x[0])
+    longeur = len(y) 
+    res = mot_gaps(longueur)
+
+    if lettre >= 0 : il y a une lettre similaire entre x et y 
+        res[lettre] = x[0] 
+        return (res,y)
+
+    if complementaire >= 0 : 
+        res[complementaire] = x[0]
+        return (res,y)    
+    
+    res[0] = x[0]
+    return (res,y)
+
+def SOL_2 (x,y): 
+
+    if 
+    if (x=y) : 
+        return 0
+    if complementaire(x,y)
